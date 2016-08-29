@@ -1,0 +1,24 @@
+concurrent = 5
+
+[[runners]]
+  limit = 0
+  url = "{{ .Env.GITLAB_CI_URL }}"
+  token = "{{ .Env.GITLAB_CI_TOKEN }}"
+  executor = "docker"
+  tls-skip-verify = true
+  environment = [
+  ]
+  [runners.docker]
+    extra_hosts = [
+    ]
+    tls_verify = false
+    privileged = true
+    disable_cache = false
+    volumes = [
+    "/cache"
+    ]
+    allowed_images = [
+    ]
+    pull_policy = "always"
+  [runners.cache]
+    Insecure = false
